@@ -27,3 +27,7 @@ You must set up a .env file for the environment variables used, including the pr
 ```
 python scrape.py
 ```
+
+## Errors
+
+If you are getting an error, namely one from SMTPAuth error code 334, this is because the mail server is blocking the connection to your app because it does not meet their secruity requirements. This is quite common with gmail, and thus it cannot be used as the EMAIL_USER.

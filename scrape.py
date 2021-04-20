@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import smtplib
 import time
-from os_config.config import Config
+from config import Config
 
 
 #Sentinel
@@ -40,7 +40,7 @@ def check_target(URL, tag, tag_class):
 
 
 
-def send_email(lst):
+def send_email(list):
     #set up server connection, encypt, login, set/send email, disconnect
     server = smtplib.SMTP(Config.MAIL_SERVER, Config.MAIL_PORT)
     server.ehlo()
@@ -49,7 +49,7 @@ def send_email(lst):
     server.login(Config.MAIL_USERNAME, Config.MAIL_PASSWORD)
 
     email_subject = "We've Scraped Something!"
-    email_body = "There have been new listings of your dream car. Check it out and see what's new.\n\n" + str(lst)
+    email_body = "There have been new listings of your dream car. Check it out and see what's new.\n\n" + str(*list)
     email_Full = 'Subject: {}\n\n{}'.format(email_subject, email_body)
 
     server.sendmail(Config.MAIL_USERNAME, Config.MAIL_TO_USER, email_Full)
