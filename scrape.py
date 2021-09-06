@@ -1,5 +1,4 @@
 # This program is a nice little web scraper being used in hopes of tracking down your dream car
-# NOTE: using user agents is not the most effective, try a parser that detects user agent (Like MobileDetect in PHP)
 
 import requests
 from bs4 import BeautifulSoup
